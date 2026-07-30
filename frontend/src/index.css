@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Oracle brand palette */
+    --oracle-brown: #523B24;
+    --oracle-deep: #35251F;
+    --oracle-deeper: #24160F;
+    --oracle-gold: #A37C3B;
+    --oracle-gold-hi: #D4A85A;
+    --oracle-beige: #E9D6C7;
+    --oracle-cream: #F5EBDD;
+    --oracle-ink: #2A211B;
+
+    --background: 40 33% 96%;
+    --foreground: 24 22% 14%;
+    --card: 40 33% 96%;
+    --card-foreground: 24 22% 14%;
+    --popover: 40 33% 96%;
+    --popover-foreground: 24 22% 14%;
+    --primary: 30 40% 24%;
+    --primary-foreground: 40 40% 94%;
+    --secondary: 33 34% 85%;
+    --secondary-foreground: 24 22% 14%;
+    --muted: 33 34% 90%;
+    --muted-foreground: 24 15% 40%;
+    --accent: 33 47% 43%;
+    --accent-foreground: 40 40% 96%;
+    --destructive: 0 74% 42%;
+    --destructive-foreground: 40 40% 96%;
+    --border: 33 25% 78%;
+    --input: 33 25% 82%;
+    --ring: 33 47% 43%;
+    --radius: 0.25rem;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--oracle-cream);
+    color: var(--oracle-ink);
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+body::selection, ::selection {
+    background: var(--oracle-gold);
+    color: var(--oracle-cream);
+}
+
+@layer base {
+    * { @apply border-border; }
+}
+
+/* Typography */
+.font-display { font-family: 'Bodoni Moda', 'Playfair Display', serif; letter-spacing: -0.02em; }
+.font-mono-serif { font-family: 'Bodoni Moda', serif; font-style: italic; }
+.font-sans { font-family: 'Montserrat', system-ui, sans-serif; }
+
+.tracking-wider-2 { letter-spacing: 0.22em; }
+.tracking-widest-2 { letter-spacing: 0.4em; }
+
+/* Kinetic reveal utilities */
+.mask-line {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: 1.05;
+}
+.mask-line > span {
+    display: inline-block;
+    will-change: transform;
+}
+
+/* Grain overlay */
+.grain {
+    position: relative;
+}
+.grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
+}
+
+/* Gold hairline */
+.gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--oracle-gold), transparent);
+}
+
+/* Marquee */
+.marquee {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 4rem;
+}
+.marquee-track {
+    display: flex;
+    gap: 4rem;
+    animation: marquee 44s linear infinite;
+    flex-shrink: 0;
+}
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+/* Custom cursor hint on buttons */
+.gold-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.gold-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--oracle-gold-hi);
+    transform: translateY(101%);
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: -1;
+}
+.gold-btn:hover::before { transform: translateY(0); }
+
+/* Number chapters big */
+.chapter-num {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 1;
+    color: var(--oracle-gold);
+    opacity: 0.9;
+}
+
+/* Table styling */
+.oracle-table th {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--oracle-gold);
+    padding-bottom: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(163,124,59,0.35);
+}
+.oracle-table td {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(163,124,59,0.18);
+    vertical-align: middle;
+    font-family: 'Bodoni Moda', serif;
+}
+
+/* Inputs on beige */
+.oracle-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(42,33,27,0.3);
+    padding: 0.85rem 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--oracle-ink);
+    outline: none;
+    transition: border-color 0.3s ease;
+    border-radius: 0;
+}
+.oracle-input:focus { border-bottom-color: var(--oracle-gold); }
+.oracle-input::placeholder { color: rgba(42,33,27,0.4); }
+
+/* Dark input variant */
+.oracle-input-dark {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(233,214,199,0.3);
+    padding: 0.85rem 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--oracle-cream);
+    outline: none;
+    transition: border-color 0.3s ease;
+    border-radius: 0;
+}
+.oracle-input-dark:focus { border-bottom-color: var(--oracle-gold-hi); }
+.oracle-input-dark::placeholder { color: rgba(233,214,199,0.45); }
+
+/* Section anchor offset for sticky nav */
+section[id] { scroll-margin-top: 96px; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--oracle-deeper); }
+::-webkit-scrollbar-thumb { background: var(--oracle-gold); border-radius: 4px; }
+
+/* Kill default focus for buttons */
+button:focus-visible { outline: 2px solid var(--oracle-gold); outline-offset: 3px; }
+
+/* Utility */
+.text-brown { color: var(--oracle-brown); }
+.text-deep { color: var(--oracle-deep); }
+.text-gold { color: var(--oracle-gold); }
+.text-beige { color: var(--oracle-beige); }
+.text-cream { color: var(--oracle-cream); }
+.text-ink { color: var(--oracle-ink); }
+.bg-brown { background-color: var(--oracle-brown); }
+.bg-deep { background-color: var(--oracle-deep); }
+.bg-deeper { background-color: var(--oracle-deeper); }
+.bg-gold { background-color: var(--oracle-gold); }
+.bg-beige { background-color: var(--oracle-beige); }
+.bg-cream { background-color: var(--oracle-cream); }
+.border-gold { border-color: var(--oracle-gold); }
+
+/* Framer-safe reveal container */
+.reveal-mask { overflow: hidden; display: inline-block; }

@@ -1,0 +1,2 @@
+/* App-level styles handled by tailwind + index.css */
+.App { min-height: 100vh; background: var(--oracle-cream); }

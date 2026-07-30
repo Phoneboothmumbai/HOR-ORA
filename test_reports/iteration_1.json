@@ -1,0 +1,43 @@
+{
+  "summary": "First full pass on Oracle by Hariom Realty landing page. Backend: created pytest suite (/app/backend/tests/backend_test.py) - 10/10 tests pass covering GET /api/, GET /api/health, POST /api/leads (happy path + persistence via GET, default source) and 5 invalid-payload validation cases. Frontend: desktop (1920x1080) and mobile (375x812) Playwright runs - hero + CTAs render, header Register Interest smooth-scrolls to enquiry, empty-form submit shows all 5 inline errors and makes NO POST, happy path submits and shows enquiry-success with lead persisted in MongoDB (verified via GET /api/leads: full_name=Awwwards Tester, source=oracle_landing). Counts verified: 12 floor plan tiles, 6 residence rows, 10 amenities, 10 connectivity rows, 6 spec rows, 5 manifesto items, 6 gallery items. Placeholder PDF returns 200 (application/pdf). floating-whatsapp href = https://wa.me/917045955955?text=... , floating-call = tel:+917045955955. Mobile menu toggle opens nav with 5 links + Register Interest CTA and closes on selection; mobile form submit also succeeds. No horizontal overflow on mobile (scrollWidth == clientWidth == 375). No console errors observed.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Gallery / Amenities imagery", "issue": "Two Unsplash URLs return HTTP 404 so images never load: IMAGES.gallery[4] 'photo-1600607687644-c7171b42498b' (gallery-item-4) and IMAGES.amenityBg 'photo-1600585154154-cbdcd35ac2ba' (amenities section background). Verified via curl -> 404 and document.images naturalWidth==0.", "selector": "[data-testid=\"gallery-item-4\"], [data-testid=\"amenities-section\"]", "priority": "HIGH"},
+      {"component": "Header (mobile menu)", "issue": "Mobile nav links and mobile Register Interest CTA had no data-testid (only the hidden desktop nav had them), making mobile nav untestable. FIXED by test agent: added mobile-nav-link-{id} and mobile-header-enquire-btn.", "selector": "[data-testid=\"mobile-nav-link-enquiry\"]", "priority": "LOW"},
+      {"component": "Enquiry / property type radios", "issue": "data-testid of the property-type button CHANGES to 'enquiry-property-type-selected' once selected, so the documented id (e.g. enquiry-property-type-2-bhk) disappears after click. Fragile for automation and for re-selecting; prefer a stable testid plus aria-pressed/data-state.", "selector": "[data-testid=\"enquiry-property-type-2-bhk\"]", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Enquiry + Footer phone number", "issues": ["The '+' in '+91 7045955955' renders as a tiny superscript-looking glyph in Bodoni Moda and looks clipped/misaligned against the digits - consider rendering '+91' in the sans font or increasing line-height"]},
+      {"screen": "Footer", "issues": ["Badge text reads 'BUILDING REALITIES · EST.' with a missing year after 'EST.'", "MahaRERA QR block is an intentional placeholder box (renders as a bare pattern square) - needs the real QR before launch"]},
+      {"screen": "Floating buttons (desktop)", "issues": ["floating-call is md:hidden so only WhatsApp shows on desktop; spec asks for floating WhatsApp+Call - confirm this is intended"]},
+      {"screen": "Enquiry -> Footer gap (desktop 1920)", "issues": ["~400px of empty space between the end of the enquiry card and the footer after success state renders; feels unbalanced"]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Replace the two 404 Unsplash images in /app/frontend/src/data/oracle.js (IMAGES.gallery[4], IMAGES.amenityBg) with working, brand-appropriate (warm/neutral luxury) imagery. Note gallery[1] is a blue-clad facade and gallery[3]/[5] are generic US-style interiors that clash with the deep-brown/gold editorial palette.",
+    "Keep a stable data-testid on property-type buttons instead of swapping to '-selected'.",
+    "Fill in footer 'EST.' year and replace MahaRERA QR placeholder.",
+    "Confirm whether floating Call button should also appear on desktop."
+  ],
+  "critical_code_review_comments": [
+    "server.py: logger is defined at the bottom of the module but referenced inside create_lead - works at runtime but move logging setup above route definitions.",
+    "server.py: uses deprecated @app.on_event('shutdown'); migrate to lifespan handlers.",
+    "server.py: POST /api/leads returns 200; a create endpoint should return 201. No rate limiting / duplicate-lead guard on a public form endpoint - abuse risk.",
+    "server.py: GET /api/leads is unauthenticated and exposes all lead PII (name, mobile, email) publicly. Should be protected before launch. (HIGH)",
+    "Enquiry.jsx: mobile is only validated client-side as 10 digits; backend allows 10-15 chars with no digit regex - add pattern validation server-side.",
+    "Reveal.jsx LineReveal uses viewport amount:0.5 with once:true; for very large multi-line headings this can delay reveal noticeably on fast/anchor scrolls."
+  ],
+  "updated_files": ["/app/frontend/src/components/oracle/Header.jsx", "/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "95%"},
+  "seed_data_creation": "Created 4 leads in MongoDB 'leads' collection during testing (2 prefixed TEST_, plus tester@oracle.example and mobile@oracle.example from UI runs). Safe to delete.",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "IMPORTANT screenshot artifact: LineReveal headings (h2) frequently appear BLANK in full-viewport Playwright screenshots even though computed transform is 'none', opacity 1 and correct color; a clipped screenshot of the same region renders the text correctly. Do NOT report missing headings as a bug - verify with page.screenshot(clip=...) or by reading computed styles. Backend suite: pytest /app/backend/tests/backend_test.py (10 tests, all green). Mobile nav testids now exist: mobile-nav-link-{overview|residences|amenities|location|enquiry}, mobile-header-enquire-btn.",
+  "rca_of_the_issue": "The two non-loading images are simply dead Unsplash photo IDs (HTTP 404 from images.unsplash.com), not a code defect; swapping the URLs in data/oracle.js resolves it."
+}
