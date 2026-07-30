@@ -132,24 +132,35 @@ export const FLOOR_PLANS = [
   { id: "service", label: "Service Floor", meta: "MEP · Services" },
 ];
 
-// Curated Unsplash imagery — luxury interior / architecture / Mumbai skyline
+// Uploaded brand assets
+export const ASSETS = {
+  oracleLogo:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/p2qsfvta_oracle%20logo%20new.webp",
+  hariomLogo:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/84cdb1ab_Hariom%20Realty%20Logo-CMYK%2002.webp",
+  sample1:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/l6hg5zg6_sample%20flat%20photo.jpeg",
+  sample2:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/gonnkx8r_sample%20flat%20photo%20%282%29.jpeg",
+  sample3:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/6zm4dutq_sample%20flat%20photo%20%283%29.jpeg",
+};
+
+// Curated Unsplash imagery — luxury interior / architecture (fallbacks / gallery fill)
 export const IMAGES = {
-  heroBg:
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80",
-  heroSecondary:
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80",
-  aboutLiving:
-    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80",
+  heroBg: ASSETS.sample2,
+  heroSecondary: ASSETS.sample1,
+  aboutLiving: ASSETS.sample1,
   gallery: [
-    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80",
+    ASSETS.sample1,
+    ASSETS.sample2,
+    ASSETS.sample3,
+    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1617104551722-3b2d51366400?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1600&q=80",
   ],
   amenityBg:
-    "https://images.unsplash.com/photo-1600585154154-cbdcd35ac2ba?auto=format&fit=crop&w=1800&q=80",
+    "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1800&q=80",
   founder:
     "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80",
   location:

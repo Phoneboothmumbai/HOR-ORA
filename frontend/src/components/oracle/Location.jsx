@@ -69,19 +69,19 @@ export default function Location() {
                   className="flex items-center justify-between py-4 border-b border-[#A37C3B]/20 group hover:pl-2 transition-all"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="font-mono-serif italic text-[#A37C3B] text-sm">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="font-display text-lg md:text-xl text-[#35251F] group-hover:text-[#A37C3B] transition-colors">
-                      {c.landmark}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 md:w-12 h-px bg-[#A37C3B]/40" />
-                    <span className="font-sans text-sm text-[#2A211B]/75 tabular-nums">
-                      {c.time}
-                    </span>
-                  </div>
+                <span className="font-mono-serif italic text-[#A37C3B] text-lg">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-lg md:text-xl text-[#35251F] group-hover:text-[#A37C3B] transition-colors">
+                  {c.landmark}
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 md:w-12 h-px bg-[#A37C3B]/40" />
+                <span className="font-sans text-sm text-[#2A211B]/85 tabular-nums font-medium">
+                  {c.time}
+                </span>
+              </div>
                 </motion.div>
               ))}
             </div>

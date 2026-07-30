@@ -137,7 +137,7 @@ export default function Residences() {
         </div>
 
         <FadeUp delay={0.4}>
-          <p className="mt-10 font-sans text-xs tracking-wide text-[#2A211B]/55 italic">
+          <p className="mt-10 font-sans text-sm tracking-wide text-[#2A211B]/75 italic">
             *Prices exclusive of taxes & other charges. Subject to change. 1&nbsp;BHK
             configurations available on request.
           </p>

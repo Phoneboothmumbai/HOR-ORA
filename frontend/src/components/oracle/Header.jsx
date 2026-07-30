@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ORACLE } from "@/constants/testIds";
-import { BRAND } from "@/data/oracle";
+import { ASSETS } from "@/data/oracle";
 
 const NAV = [
   { id: "overview", label: "Overview" },
@@ -45,14 +45,13 @@ export default function Header() {
         {/* Logo */}
         <button
           onClick={() => scrollTo("hero")}
-          className="flex flex-col items-start leading-none"
+          className="flex items-center gap-3 leading-none"
         >
-          <span className="font-display text-[#E9D6C7] text-2xl md:text-3xl tracking-widest-2">
-            ORACLE
-          </span>
-          <span className="font-sans text-[#A37C3B] text-[0.55rem] md:text-[0.6rem] tracking-widest-2 mt-1 font-light">
-            BY {BRAND.developer.toUpperCase()}
-          </span>
+          <img
+            src={ASSETS.oracleLogo}
+            alt="Oracle by Hariom Realty"
+            className="h-10 md:h-12 w-auto"
+          />
         </button>
 
         {/* Desktop nav */}

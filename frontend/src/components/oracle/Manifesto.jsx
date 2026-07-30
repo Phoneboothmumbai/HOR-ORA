@@ -54,7 +54,7 @@ export default function Manifesto() {
                 </h3>
               </div>
               <div className="md:col-span-6 md:pt-4">
-                <p className="font-sans text-[#E9D6C7]/70 leading-relaxed text-base md:text-lg max-w-xl">
+                <p className="font-sans text-[#E9D6C7]/90 leading-relaxed text-base md:text-lg max-w-xl">
                   {m.body}
                 </p>
               </div>

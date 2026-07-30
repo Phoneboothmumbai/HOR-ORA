@@ -55,7 +55,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.9 }}
-          className="pt-28 md:pt-32 px-6 md:px-10 flex items-center justify-between text-[0.65rem] tracking-widest-2 text-[#E9D6C7]/70 font-sans uppercase"
+          className="pt-28 md:pt-32 px-6 md:px-10 flex items-center justify-between text-[0.68rem] tracking-widest-2 text-[#E9D6C7]/85 font-sans uppercase"
         >
           <span>MahaRERA · {BRAND.rera}</span>
           <span className="hidden md:inline">
@@ -179,7 +179,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.4, duration: 1 }}
-          className="pb-8 px-6 md:px-10 flex items-center justify-between text-[#E9D6C7]/60 font-sans text-[0.65rem] tracking-widest-2 uppercase"
+          className="pb-8 px-6 md:px-10 flex items-center justify-between text-[#E9D6C7]/80 font-sans text-[0.65rem] tracking-widest-2 uppercase"
         >
           <span>Scroll · Explore the residence</span>
           <motion.span

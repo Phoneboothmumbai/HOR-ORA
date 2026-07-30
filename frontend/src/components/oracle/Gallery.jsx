@@ -34,7 +34,7 @@ export default function Gallery() {
           </h2>
           <div className="lg:col-span-4">
             <FadeUp delay={0.2}>
-              <p className="font-sans text-[#2A211B]/70 text-sm md:text-base leading-relaxed">
+              <p className="font-sans text-[#2A211B]/85 text-sm md:text-base leading-relaxed">
                 Every material chosen for how it will look in six years, not just today.
                 A slow, deliberate visual language.
               </p>

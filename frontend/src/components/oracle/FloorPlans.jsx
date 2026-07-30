@@ -82,7 +82,7 @@ export default function FloorPlans() {
         </div>
 
         <FadeUp delay={0.3}>
-          <p className="mt-10 font-sans text-xs text-[#E9D6C7]/50 italic">
+          <p className="mt-10 font-sans text-sm text-[#E9D6C7]/75 italic">
             *PDFs shown are placeholder — full CAD-drawn plans are supplied on registered
             enquiry.
           </p>

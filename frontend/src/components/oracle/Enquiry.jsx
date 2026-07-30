@@ -134,7 +134,7 @@ export default function Enquiry() {
             </h2>
 
             <FadeUp delay={0.3}>
-              <p className="font-sans text-[#E9D6C7]/70 leading-relaxed text-base md:text-lg max-w-md">
+              <p className="font-sans text-[#E9D6C7]/85 leading-relaxed text-base md:text-lg max-w-md">
                 Leave your details. A senior sales associate will personally curate a
                 walkthrough of the sample flat, price cards and floor plans.
               </p>
@@ -150,17 +150,17 @@ export default function Enquiry() {
                     href={`tel:+91${CONTACT.primaryPhone}`}
                     className="font-display text-2xl text-[#E9D6C7] hover:text-[#A37C3B] transition-colors"
                   >
-                    +91 {CONTACT.primaryPhone}
+                    <span className="font-sans font-light mr-1">+91</span>{CONTACT.primaryPhone}
                   </a>
                 </div>
                 <div>
                   <div className="font-sans text-[0.6rem] tracking-widest-2 uppercase text-[#A37C3B] mb-1">
                     Sales Office
                   </div>
-                  <p className="font-sans text-[#E9D6C7]/85 text-sm leading-relaxed">
+                  <p className="font-sans text-[#E9D6C7]/90 text-sm leading-relaxed">
                     {CONTACT.office}
                   </p>
-                  <p className="font-sans text-[#E9D6C7]/60 text-xs mt-1">
+                  <p className="font-sans text-[#E9D6C7]/70 text-xs mt-1">
                     {CONTACT.hours}
                   </p>
                 </div>
@@ -233,27 +233,31 @@ export default function Enquiry() {
                     <div>
                       <FieldLabel>Property Type</FieldLabel>
                       <div className="flex flex-wrap gap-2">
-                        {PROPERTY_OPTIONS.map((p) => (
-                          <button
-                            key={p}
-                            type="button"
-                            data-testid={
-                              p === state.property_type
-                                ? `${ORACLE.enquiry.propertyType}-selected`
-                                : `${ORACLE.enquiry.propertyType}-${p.replace(" ", "-").toLowerCase()}`
-                            }
-                            onClick={() =>
-                              setState((s) => ({ ...s, property_type: p }))
-                            }
-                            className={`px-4 py-2 border font-sans text-xs tracking-widest-2 uppercase transition-all duration-300 ${
-                              state.property_type === p
-                                ? "border-[#A37C3B] bg-[#A37C3B] text-[#24160F]"
-                                : "border-[#A37C3B]/40 text-[#E9D6C7]/80 hover:border-[#A37C3B]"
-                            }`}
-                          >
-                            {p}
-                          </button>
-                        ))}
+                        {PROPERTY_OPTIONS.map((p) => {
+                          const stableId = `${ORACLE.enquiry.propertyType}-${p
+                            .replace(" ", "-")
+                            .toLowerCase()}`;
+                          const isActive = state.property_type === p;
+                          return (
+                            <button
+                              key={p}
+                              type="button"
+                              data-testid={stableId}
+                              data-selected={isActive ? "true" : "false"}
+                              aria-pressed={isActive}
+                              onClick={() =>
+                                setState((s) => ({ ...s, property_type: p }))
+                              }
+                              className={`px-4 py-2 border font-sans text-xs tracking-widest-2 uppercase transition-all duration-300 ${
+                                isActive
+                                  ? "border-[#A37C3B] bg-[#A37C3B] text-[#24160F]"
+                                  : "border-[#A37C3B]/40 text-[#E9D6C7]/90 hover:border-[#A37C3B]"
+                              }`}
+                            >
+                              {p}
+                            </button>
+                          );
+                        })}
                       </div>
                       {errors.property_type && (
                         <div className="mt-2 text-[0.7rem] text-red-300 font-sans">
@@ -293,7 +297,7 @@ export default function Enquiry() {
                   </div>
 
                   <div className="mt-12 pt-8 border-t border-[#A37C3B]/25 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <p className="font-sans text-[0.65rem] tracking-wide text-[#E9D6C7]/50 italic max-w-md">
+                    <p className="font-sans text-[0.72rem] tracking-wide text-[#E9D6C7]/75 italic max-w-md">
                       By registering interest, you consent to be contacted regarding
                       Oracle. Your details are treated per our privacy policy.
                     </p>
@@ -332,7 +336,7 @@ export default function Enquiry() {
                   <h3 className="font-display text-4xl md:text-5xl leading-tight text-[#E9D6C7] mb-4">
                     Thank you<span className="text-[#A37C3B]">.</span>
                   </h3>
-                  <p className="font-sans text-[#E9D6C7]/75 leading-relaxed max-w-md">
+                  <p className="font-sans text-[#E9D6C7]/90 leading-relaxed max-w-md">
                     Your interest is registered. A senior sales associate from Hariom
                     Realty will personally reach out to <span className="text-[#A37C3B]">{state.email}</span> within the next
                     24 hours.

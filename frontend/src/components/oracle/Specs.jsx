@@ -54,7 +54,7 @@ export default function Specs() {
                 <div className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B] mb-1">
                   Specification
                 </div>
-                <div className="font-sans text-[#E9D6C7]/80 leading-relaxed">{s.spec}</div>
+                <div className="font-sans text-[#E9D6C7]/95 leading-relaxed">{s.spec}</div>
               </div>
               <div className="md:col-span-4">
                 <div className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B] mb-1">

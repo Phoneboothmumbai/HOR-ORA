@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { ORACLE } from "@/constants/testIds";
-import { BRAND, CONTACT } from "@/data/oracle";
+import { BRAND, CONTACT, ASSETS } from "@/data/oracle";
 import { FadeUp, LineReveal } from "./Reveal";
 
 export default function Footer() {
@@ -25,14 +25,13 @@ export default function Footer() {
           {/* Column 1: brand */}
           <div className="md:col-span-4">
             <div className="mb-6">
-              <div className="font-display text-3xl text-[#E9D6C7] tracking-widest-2">
-                ORACLE
-              </div>
-              <div className="font-sans text-[0.6rem] tracking-widest-2 uppercase text-[#A37C3B] mt-1">
-                By {BRAND.developer}
-              </div>
+              <img
+                src={ASSETS.oracleLogo}
+                alt="Oracle by Hariom Realty"
+                className="h-16 w-auto"
+              />
             </div>
-            <p className="font-display italic text-[#E9D6C7]/70 text-lg leading-snug max-w-xs">
+            <p className="font-display italic text-[#E9D6C7]/85 text-lg leading-snug max-w-xs">
               We don&apos;t just build homes. <br />
               <span className="text-[#A37C3B]">We build trust.</span>
             </p>
@@ -71,8 +70,8 @@ export default function Footer() {
               >
                 <Phone size={16} className="mt-1 text-[#A37C3B]" />
                 <div>
-                  <div className="font-display text-lg">+91 {CONTACT.primaryPhone}</div>
-                  <div className="font-sans text-xs text-[#E9D6C7]/50">
+                  <div className="font-display text-lg"><span className="font-sans font-light mr-1">+91</span>{CONTACT.primaryPhone}</div>
+                  <div className="font-sans text-xs text-[#E9D6C7]/70">
                     also · 7567906906 · 7567784784
                   </div>
                 </div>
@@ -86,10 +85,10 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="mt-1 text-[#A37C3B] flex-shrink-0" />
-                <div className="font-sans text-[#E9D6C7]/80 text-sm leading-relaxed">
+                <div className="font-sans text-[#E9D6C7]/90 text-sm leading-relaxed">
                   {CONTACT.office}
                   <br />
-                  <span className="text-[#E9D6C7]/50">{CONTACT.hours}</span>
+                  <span className="text-[#E9D6C7]/70">{CONTACT.hours}</span>
                 </div>
               </div>
             </div>
@@ -143,15 +142,17 @@ export default function Footer() {
         {/* Developer strip */}
         <div className="mt-16 md:mt-24 pt-8 border-t border-[#A37C3B]/25 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full border border-[#A37C3B] flex items-center justify-center">
-              <span className="font-display text-[#A37C3B]">H</span>
-            </div>
+            <img
+              src={ASSETS.hariomLogo}
+              alt="Hariom Realty"
+              className="w-14 h-14 md:w-16 md:h-16 object-contain"
+            />
             <div>
               <div className="font-display text-[#E9D6C7] text-lg leading-tight">
-                {BRAND.developer}
+                Developed by {BRAND.developer}
               </div>
               <div className="font-sans text-[0.6rem] tracking-widest-2 uppercase text-[#A37C3B]">
-                Building Realities · Est.
+                Building Realities
               </div>
             </div>
           </div>
@@ -169,7 +170,7 @@ export default function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 font-sans text-[0.65rem] text-[#E9D6C7]/40 leading-relaxed italic">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 font-sans text-[0.72rem] text-[#E9D6C7]/70 leading-relaxed italic">
           <p>
             [PLACEHOLDER — client to provide disclaimer text]. Images used in this
             landing page are indicative and for representation purposes only. Prices,
