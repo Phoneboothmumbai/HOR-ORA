@@ -48,14 +48,14 @@ export default function Gallery() {
           <GalleryTile
             i={0}
             src={IMAGES.gallery[0]}
-            label="Master Bedroom"
+            label="Living Room · Sample Flat"
             frame="002"
             className="col-span-12 md:col-span-8 aspect-[16/10]"
           />
           <GalleryTile
             i={1}
             src={IMAGES.gallery[1]}
-            label="Foyer"
+            label="Tower Elevation"
             frame="003"
             className="col-span-12 md:col-span-4 aspect-[3/4] md:aspect-auto md:h-full"
           />
@@ -63,21 +63,21 @@ export default function Gallery() {
           <GalleryTile
             i={2}
             src={IMAGES.gallery[2]}
-            label="Living"
+            label="Bedroom · Sample Flat"
             frame="004"
             className="col-span-6 md:col-span-4 aspect-[3/4]"
           />
           <GalleryTile
             i={3}
             src={IMAGES.gallery[3]}
-            label="Dining"
+            label="Study · Sample Flat"
             frame="005"
             className="col-span-6 md:col-span-4 aspect-[3/4]"
           />
           <GalleryTile
             i={4}
             src={IMAGES.gallery[4]}
-            label="Kitchen"
+            label="Chauffeur Arrival"
             frame="006"
             className="col-span-12 md:col-span-4 aspect-[3/4]"
           />
@@ -85,7 +85,7 @@ export default function Gallery() {
           <GalleryTile
             i={5}
             src={IMAGES.gallery[5]}
-            label="Balcony View"
+            label="Street View · Opp. NY Cinemas"
             frame="007"
             className="col-span-12 aspect-[21/9]"
           />

@@ -138,6 +138,18 @@ export const ASSETS = {
     "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/p2qsfvta_oracle%20logo%20new.webp",
   hariomLogo:
     "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/84cdb1ab_Hariom%20Realty%20Logo-CMYK%2002.webp",
+  // Exterior renders
+  exteriorHero:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/cc8rp3ro_shot_02.webp",
+  exteriorAerial:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/4m59ofw0_shot_01B.webp",
+  exteriorStreet:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/iqz1i9ln_shot_03Av1.webp",
+  exteriorStreet2:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/j67y6ofq_shot_03B-v2.webp",
+  exteriorArrival:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/wkiwtszq_shot_04.webp",
+  // Interior sample flats
   sample1:
     "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/l6hg5zg6_sample%20flat%20photo.jpeg",
   sample2:
@@ -146,25 +158,22 @@ export const ASSETS = {
     "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/6zm4dutq_sample%20flat%20photo%20%283%29.jpeg",
 };
 
-// Curated Unsplash imagery — luxury interior / architecture (fallbacks / gallery fill)
 export const IMAGES = {
-  heroBg: ASSETS.sample2,
-  heroSecondary: ASSETS.sample1,
+  heroBg: ASSETS.exteriorHero,
+  heroSecondary: ASSETS.exteriorStreet,
   aboutLiving: ASSETS.sample1,
   gallery: [
     ASSETS.sample1,
+    ASSETS.exteriorStreet,
     ASSETS.sample2,
     ASSETS.sample3,
-    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1600&q=80",
+    ASSETS.exteriorArrival,
+    ASSETS.exteriorStreet2,
   ],
-  amenityBg:
-    "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1800&q=80",
+  amenityBg: ASSETS.exteriorAerial,
   founder:
     "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80",
-  location:
-    "https://images.unsplash.com/photo-1567604130959-7ea7ab2a7ea6?auto=format&fit=crop&w=1800&q=80",
+  location: ASSETS.exteriorAerial,
   floorPlan:
     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
 };

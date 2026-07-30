@@ -41,11 +41,11 @@ export default function Hero() {
       >
         <img
           src={IMAGES.heroBg}
-          alt="Oracle exterior render placeholder"
-          className="w-full h-[120%] object-cover"
+          alt="Oracle exterior render"
+          className="w-full h-[120%] object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#24160F]/70 via-[#24160F]/55 to-[#24160F]" />
-        <div className="absolute inset-0 bg-[#35251F]/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#24160F]/60 via-[#24160F]/30 to-[#24160F]/95" />
+        <div className="absolute inset-0 bg-[#35251F]/20" />
       </motion.div>
 
       {/* Editorial frame */}
