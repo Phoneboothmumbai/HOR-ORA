@@ -7,10 +7,8 @@ import Manifesto from "@/components/oracle/Manifesto";
 import Residences from "@/components/oracle/Residences";
 import FloorPlans from "@/components/oracle/FloorPlans";
 import Gallery from "@/components/oracle/Gallery";
-import Specs from "@/components/oracle/Specs";
 import Amenities from "@/components/oracle/Amenities";
 import Location from "@/components/oracle/Location";
-import Founder from "@/components/oracle/Founder";
 import Enquiry from "@/components/oracle/Enquiry";
 import Footer from "@/components/oracle/Footer";
 import Floating from "@/components/oracle/Floating";
@@ -40,10 +38,8 @@ export default function OracleLanding() {
       <Residences />
       <FloorPlans />
       <Gallery />
-      <Specs />
       <Amenities />
       <Location />
-      <Founder />
       <Enquiry />
       <Footer />
       <Floating />

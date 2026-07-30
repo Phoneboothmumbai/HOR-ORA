@@ -11,7 +11,6 @@ export const BRAND = {
 
 export const CONTACT = {
   primaryPhone: "7045955955",
-  altPhones: ["7567906906", "7567784784"],
   whatsapp: "917045955955",
   email: "contact@hariomrealty.com",
   office:
@@ -64,16 +63,16 @@ export const SPECS = [
 ];
 
 export const AMENITIES = [
-  { name: "Multipurpose Lawn", icon: "trees" },
-  { name: "Senior Citizen Corner", icon: "armchair" },
-  { name: "Sandpit Reflexology", icon: "footprints" },
-  { name: "Sitting Corner", icon: "sofa" },
-  { name: "Kids' Play Area", icon: "toy-brick" },
-  { name: "Outdoor Gym", icon: "dumbbell" },
-  { name: "Reading Corner", icon: "book-open" },
-  { name: "Meditation Corner", icon: "flower" },
-  { name: "Viewing Deck", icon: "mountain" },
-  { name: "Multi-tier Security", icon: "shield-check" },
+  { name: "Multipurpose Lawn", tag: "Open air", icon: "trees" },
+  { name: "Senior Citizen Corner", tag: "Quiet", icon: "armchair" },
+  { name: "Sandpit Reflexology", tag: "Barefoot", icon: "footprints" },
+  { name: "Sitting Corner", tag: "Landscaped", icon: "sofa" },
+  { name: "Kids' Play Area", tag: "Fenced", icon: "toy-brick" },
+  { name: "Outdoor Gym", tag: "Open sky", icon: "dumbbell" },
+  { name: "Reading Corner", tag: "Nook", icon: "book-open" },
+  { name: "Meditation Corner", tag: "Zen", icon: "flower" },
+  { name: "Viewing Deck", tag: "Rooftop", icon: "mountain" },
+  { name: "Multi-tier Security", tag: "24 × 7", icon: "shield-check" },
 ];
 
 export const CONNECTIVITY = [

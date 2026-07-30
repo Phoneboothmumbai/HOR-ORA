@@ -1,10 +1,62 @@
-import { motion } from "framer-motion";
-import { Instagram, Facebook, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Instagram, Facebook, Phone, Mail, MapPin, ArrowUpRight, Plus } from "lucide-react";
 import { ORACLE } from "@/constants/testIds";
 import { BRAND, CONTACT, ASSETS } from "@/data/oracle";
 import { FadeUp, LineReveal } from "./Reveal";
 
+const LEGAL_TABS = [
+  {
+    id: "disclaimer",
+    label: "Disclaimer",
+    body: (
+      <>
+        <p>
+          The images, renders, plans, layouts, dimensions, elevations, specifications
+          and amenities depicted on this page are for representation purposes only and
+          are subject to change without notice by the developer or the relevant
+          authorities.
+        </p>
+        <p>
+          Nothing on this page constitutes an offer, invitation to offer, or legal
+          contract. Buyers are advised to independently verify all information,
+          including MahaRERA registration details, before entering into any
+          transaction. Prices are exclusive of applicable taxes and other statutory
+          charges.
+        </p>
+        <p className="italic text-[#E9D6C7]/60">
+          [Full disclaimer text — content pending from Hariom Realty. Please share
+          final copy to replace this placeholder.]
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "privacy",
+    label: "Privacy Policy",
+    body: (
+      <>
+        <p>
+          When you submit an enquiry, we collect your name, mobile number, email
+          address and preferred configuration solely to help our sales team respond to
+          your interest in Oracle. Your information is stored securely and is never
+          sold or shared with third parties for marketing purposes.
+        </p>
+        <p>
+          You may withdraw consent or request deletion of your data at any time by
+          writing to <a href={`mailto:${CONTACT.email}`} className="text-[#A37C3B] hover:underline">{CONTACT.email}</a>.
+        </p>
+        <p className="italic text-[#E9D6C7]/60">
+          [Full privacy policy — content pending from Hariom Realty. Please share
+          final copy to replace this placeholder.]
+        </p>
+      </>
+    ),
+  },
+];
+
 export default function Footer() {
+  const [openTab, setOpenTab] = useState(null);
   const scrollTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -72,7 +124,7 @@ export default function Footer() {
                 <div>
                   <div className="font-display text-lg"><span className="font-sans font-light mr-1">+91</span>{CONTACT.primaryPhone}</div>
                   <div className="font-sans text-xs text-[#E9D6C7]/70">
-                    also · 7567906906 · 7567784784
+                    Sales · WhatsApp
                   </div>
                 </div>
               </a>
@@ -169,16 +221,59 @@ export default function Footer() {
           </button>
         </div>
 
-        {/* Disclaimer */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 font-sans text-[0.72rem] text-[#E9D6C7]/70 leading-relaxed italic">
-          <p>
-            [PLACEHOLDER — client to provide disclaimer text]. Images used in this
-            landing page are indicative and for representation purposes only. Prices,
+        {/* Legal tabs (Disclaimer + Privacy) */}
+        <div className="mt-10 border-t border-[#A37C3B]/25">
+          {LEGAL_TABS.map((t) => {
+            const open = openTab === t.id;
+            return (
+              <div key={t.id} className="border-b border-[#A37C3B]/20">
+                <button
+                  data-testid={`footer-tab-${t.id}`}
+                  onClick={() => setOpenTab(open ? null : t.id)}
+                  className="w-full py-5 flex items-center justify-between text-left group"
+                  aria-expanded={open}
+                >
+                  <span className="font-sans text-[0.7rem] tracking-widest-2 uppercase text-[#E9D6C7]/85 group-hover:text-[#A37C3B] transition-colors">
+                    {t.label}
+                  </span>
+                  <motion.span
+                    animate={{ rotate: open ? 45 : 0 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-[#A37C3B]"
+                  >
+                    <Plus size={18} />
+                  </motion.span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {open && (
+                    <motion.div
+                      key="body"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-8 pr-4 md:pr-16 font-sans text-sm md:text-[0.95rem] text-[#E9D6C7]/85 leading-relaxed space-y-3">
+                        {t.body}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom line */}
+        <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 font-sans text-[0.72rem] text-[#E9D6C7]/70 leading-relaxed">
+          <p className="italic max-w-2xl">
+            All images are artistic renders for representation purposes only. Prices,
             areas, specifications and amenities are subject to change without notice.
           </p>
           <p className="md:text-right">
-            © {new Date().getFullYear()} {BRAND.developer}. All rights reserved. Designed
-            with care in Mumbai.
+            © {new Date().getFullYear()} {BRAND.developer}. All rights reserved.
+            Designed with care in Mumbai.
           </p>
         </div>
       </div>
