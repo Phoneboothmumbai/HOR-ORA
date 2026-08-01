@@ -9,7 +9,7 @@ export const ORACLE = {
   hero: {
     root: "hero-section",
     ctaPrimary: "hero-cta-enquire",
-    ctaSecondary: "hero-cta-floorplans",
+    ctaSecondary: "hero-cta-residences",
     tagline: "hero-tagline",
   },
   about: { root: "about-section" },
@@ -20,16 +20,9 @@ export const ORACLE = {
     row: (i) => `residence-row-${i}`,
     enquireBtn: (i) => `residence-enquire-${i}`,
   },
-  floorPlans: {
-    root: "floor-plans-section",
-    item: (i) => `floor-plan-${i}`,
-    download: (i) => `floor-plan-download-${i}`,
-  },
   gallery: { root: "gallery-section", item: (i) => `gallery-item-${i}` },
-  specs: { root: "specs-section" },
   amenities: { root: "amenities-section", item: (i) => `amenity-${i}` },
   location: { root: "location-section" },
-  founder: { root: "founder-section" },
   enquiry: {
     root: "enquiry-section",
     form: "enquiry-form",

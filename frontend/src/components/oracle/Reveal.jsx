@@ -1,12 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-/** Word / character reveal for headings */
+/** Word / character reveal for headings — outer wrapper watches viewport (not the clipped inner) */
 export function LineReveal({ text, delay = 0, className = "", as = "span" }) {
   const words = text.split(" ");
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.15, margin: "0px 0px -10% 0px" });
   const Tag = motion[as] || motion.span;
   return (
-    <Tag className={className} aria-label={text}>
+    <Tag ref={ref} className={className} aria-label={text}>
       {words.map((w, i) => (
         <span
           key={i}
@@ -15,8 +17,7 @@ export function LineReveal({ text, delay = 0, className = "", as = "span" }) {
           <motion.span
             style={{ display: "inline-block" }}
             initial={{ y: "110%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            animate={inView ? { y: 0 } : { y: "110%" }}
             transition={{
               duration: 0.9,
               ease: [0.65, 0, 0.35, 1],
