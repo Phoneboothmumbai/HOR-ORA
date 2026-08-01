@@ -9,7 +9,7 @@ export default function Floating() {
   );
 
   return (
-    <div className="fixed z-40 bottom-6 right-6 md:bottom-8 md:right-8 flex flex-col gap-3">
+    <div className="fixed z-40 bottom-5 right-4 md:bottom-8 md:right-8 flex flex-col gap-2.5 md:gap-3">
       <motion.a
         data-testid={ORACLE.floating.whatsapp}
         href={`https://wa.me/${CONTACT.whatsapp}?text=${waMsg}`}
@@ -21,10 +21,10 @@ export default function Floating() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Chat on WhatsApp"
-        className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-black/40 group"
+        className="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-black/40"
       >
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" />
-        <MessageCircle size={22} />
+        <MessageCircle size={20} className="md:w-6 md:h-6" />
       </motion.a>
 
       <motion.a
@@ -36,9 +36,9 @@ export default function Floating() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Call sales"
-        className="md:hidden w-14 h-14 rounded-full bg-[#A37C3B] text-[#24160F] flex items-center justify-center shadow-lg shadow-black/40"
+        className="md:hidden w-12 h-12 rounded-full bg-[#A37C3B] text-[#24160F] flex items-center justify-center shadow-lg shadow-black/40"
       >
-        <Phone size={20} />
+        <Phone size={18} />
       </motion.a>
     </div>
   );

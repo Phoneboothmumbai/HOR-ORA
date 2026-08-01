@@ -13,11 +13,11 @@ export default function Residences() {
     <section
       id="residences"
       data-testid={ORACLE.residences.root}
-      className="relative bg-[#F5EBDD] text-[#2A211B] py-24 md:py-36"
+      className="relative bg-[#F5EBDD] text-[#2A211B] py-14 md:py-24 lg:py-32"
     >
-      <div className="max-w-[1500px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto px-5 md:px-10">
         <FadeUp>
-          <div className="flex items-center gap-4 mb-14">
+          <div className="flex items-center gap-4 mb-8 md:mb-12">
             <span className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B]">
               (03) — Residences
             </span>
@@ -28,8 +28,8 @@ export default function Residences() {
           </div>
         </FadeUp>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-14 items-end mb-14">
-          <h2 className="lg:col-span-7 font-display text-[#35251F] text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-10 items-end mb-8 md:mb-12">
+          <h2 className="lg:col-span-7 font-display text-[#35251F] text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95]">
             <LineReveal text="Choose your" />
             <br />
             <span className="italic text-[#A37C3B] font-mono-serif">

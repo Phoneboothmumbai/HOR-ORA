@@ -8,11 +8,11 @@ export default function Manifesto() {
     <section
       id="manifesto"
       data-testid={ORACLE.manifesto.root}
-      className="relative bg-[#35251F] text-[#E9D6C7] py-24 md:py-36 overflow-hidden grain"
+      className="relative bg-[#35251F] text-[#E9D6C7] py-14 md:py-24 lg:py-32 overflow-hidden grain"
     >
-      <div className="max-w-[1500px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto px-5 md:px-10">
         <FadeUp>
-          <div className="flex items-center gap-4 mb-14">
+          <div className="flex items-center gap-4 mb-8 md:mb-12">
             <span className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B]">
               (02) — The Manifesto
             </span>
@@ -23,8 +23,8 @@ export default function Manifesto() {
           </div>
         </FadeUp>
 
-        <div className="mb-20">
-          <h2 className="font-display text-[#E9D6C7] text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95]">
+        <div className="mb-10 md:mb-16">
+          <h2 className="font-display text-[#E9D6C7] text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95]">
             <LineReveal text="Why families" />
             <br />
             <span className="italic text-[#A37C3B] font-mono-serif">

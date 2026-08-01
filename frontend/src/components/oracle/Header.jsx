@@ -41,7 +41,7 @@ export default function Header() {
           : "bg-gradient-to-b from-[#24160F]/70 via-[#24160F]/40 to-transparent"
       }`}
     >
-      <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-4 md:py-5 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-3 md:py-5 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => scrollTo("hero")}

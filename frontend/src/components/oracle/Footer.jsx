@@ -66,14 +66,14 @@ export default function Footer() {
       className="relative bg-[#24160F] text-[#E9D6C7] grain overflow-hidden"
     >
       {/* Big display footer word */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-10 pt-24 md:pt-36 pb-16">
+      <div className="max-w-[1600px] mx-auto px-5 md:px-10 pt-16 md:pt-28 pb-16">
         <FadeUp>
           <h2 className="font-display leading-[0.85] text-[22vw] md:text-[16vw] lg:text-[13rem] text-[#A37C3B]/25 select-none pointer-events-none">
             <LineReveal text="ORACLE." />
           </h2>
         </FadeUp>
 
-        <div className="mt-12 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+        <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           {/* Column 1: brand */}
           <div className="md:col-span-4">
             <div className="mb-6">

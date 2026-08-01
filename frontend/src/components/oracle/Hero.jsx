@@ -32,7 +32,7 @@ export default function Hero() {
       id="hero"
       data-testid={ORACLE.hero.root}
       ref={ref}
-      className="relative min-h-screen bg-[#24160F] overflow-hidden grain"
+      className="relative min-h-[100svh] bg-[#24160F] overflow-hidden grain"
     >
       {/* Parallax background image */}
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
@@ -163,8 +163,8 @@ export default function Hero() {
           {/* dark base for legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#24160F] via-[#24160F]/90 to-transparent" />
 
-          <div className="relative px-6 md:px-10 pb-6 md:pb-8 pt-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 border-t border-[#A37C3B]/40 pt-5">
+          <div className="relative px-5 md:px-10 pb-5 md:pb-8 pt-6 md:pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-4 md:gap-y-5 border-t border-[#A37C3B]/40 pt-4 md:pt-5">
               {FACTS.map((f, i) => (
                 <div key={f.k} className="flex flex-col">
                   <span className="font-sans text-[0.58rem] tracking-widest-2 uppercase text-[#A37C3B] mb-1.5">

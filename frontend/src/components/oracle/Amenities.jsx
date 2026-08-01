@@ -18,11 +18,11 @@ export default function Amenities() {
     <section
       id="amenities"
       data-testid={ORACLE.amenities.root}
-      className="relative bg-[#24160F] text-[#E9D6C7] py-24 md:py-36 overflow-hidden grain"
+      className="relative bg-[#24160F] text-[#E9D6C7] py-14 md:py-24 lg:py-32 overflow-hidden grain"
     >
-      <div className="relative max-w-[1600px] mx-auto px-6 md:px-10">
+      <div className="relative max-w-[1600px] mx-auto px-5 md:px-10">
         <FadeUp>
-          <div className="flex items-center gap-4 mb-14">
+          <div className="flex items-center gap-4 mb-8 md:mb-12">
             <span className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B]">
               (07) — Amenities
             </span>
@@ -33,8 +33,8 @@ export default function Amenities() {
           </div>
         </FadeUp>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-14 items-end mb-16 md:mb-20">
-          <h2 className="lg:col-span-8 font-display text-[#E9D6C7] text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-10 items-end mb-10 md:mb-16">
+          <h2 className="lg:col-span-8 font-display text-[#E9D6C7] text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95]">
             <LineReveal text="A resort" />
             <br />
             <span className="italic text-[#A37C3B] font-mono-serif">
@@ -60,7 +60,7 @@ export default function Amenities() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden mb-6 md:mb-8 border border-[#A37C3B]/25"
         >
-          <div className="relative aspect-[21/9] md:aspect-[24/9]">
+          <div className="relative aspect-[4/3] md:aspect-[21/9] lg:aspect-[24/9]">
             <img
               src={ASSETS.exteriorAerial}
               alt="Oracle amenity atmosphere"
@@ -100,7 +100,7 @@ export default function Amenities() {
                   delay: (i % 5) * 0.06,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group relative bg-[#24160F] hover:bg-[#35251F] transition-colors duration-500 aspect-square md:aspect-[4/5] flex flex-col justify-between p-5 md:p-7 overflow-hidden"
+                className="group relative bg-[#24160F] hover:bg-[#35251F] transition-colors duration-500 aspect-[4/5] md:aspect-[4/5] flex flex-col justify-between p-4 md:p-6 lg:p-7 overflow-hidden"
               >
                 {/* Decorative background pattern */}
                 <div

@@ -8,12 +8,12 @@ export default function About() {
     <section
       id="overview"
       data-testid={ORACLE.about.root}
-      className="relative bg-[#F5EBDD] text-[#2A211B] py-24 md:py-36 overflow-hidden"
+      className="relative bg-[#F5EBDD] text-[#2A211B] py-14 md:py-24 lg:py-32 overflow-hidden"
     >
-      <div className="max-w-[1500px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto px-5 md:px-10">
         {/* Section eyebrow */}
         <FadeUp>
-          <div className="flex items-center gap-4 mb-16 md:mb-24">
+          <div className="flex items-center gap-4 mb-10 md:mb-10 md:mb-16">
             <span className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B]">
               (01) — The Address
             </span>
@@ -24,7 +24,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
           {/* Left: Big display heading */}
           <div className="lg:col-span-7">
-            <h2 className="font-display leading-[0.95] text-5xl md:text-7xl lg:text-[7rem] text-[#35251F]">
+            <h2 className="font-display leading-[0.95] text-4xl sm:text-5xl md:text-7xl lg:text-[7rem] text-[#35251F]">
               <LineReveal text="More than" />
               <br />
               <span className="italic text-[#A37C3B] font-mono-serif">
@@ -76,9 +76,9 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-20 md:mt-28 relative"
+          className="mt-14 md:mt-24 relative"
         >
-          <div className="relative aspect-[16/9] overflow-hidden bg-[#35251F]">
+          <div className="relative aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-[#35251F]">
             <img
               src={IMAGES.aboutLiving}
               alt="Living room interior"

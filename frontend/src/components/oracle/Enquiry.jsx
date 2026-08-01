@@ -107,11 +107,11 @@ export default function Enquiry() {
     <section
       id="enquiry"
       data-testid={ORACLE.enquiry.root}
-      className="relative bg-[#24160F] text-[#E9D6C7] py-24 md:py-36 grain overflow-hidden"
+      className="relative bg-[#24160F] text-[#E9D6C7] py-14 md:py-24 lg:py-32 grain overflow-hidden"
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-10">
         <FadeUp>
-          <div className="flex items-center gap-4 mb-14">
+          <div className="flex items-center gap-4 mb-8 md:mb-12">
             <span className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B]">
               (10) — Register Interest
             </span>
@@ -122,10 +122,10 @@ export default function Enquiry() {
           </div>
         </FadeUp>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-14 items-start">
           {/* Left copy */}
           <div className="lg:col-span-5 lg:pr-8">
-            <h2 className="font-display text-[#E9D6C7] text-5xl md:text-7xl lg:text-[6rem] leading-[0.95] mb-8">
+            <h2 className="font-display text-[#E9D6C7] text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] leading-[0.95] mb-8">
               <LineReveal text="Reserve" />
               <br />
               <span className="italic text-[#A37C3B] font-mono-serif">
@@ -189,7 +189,7 @@ export default function Enquiry() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6 }}
-                  className="relative bg-[#35251F] border border-[#A37C3B]/30 p-8 md:p-14"
+                  className="relative bg-[#35251F] border border-[#A37C3B]/30 p-6 md:p-12"
                 >
                   <div className="absolute -top-3 left-8 bg-[#24160F] px-3 font-sans text-[0.6rem] tracking-widest-2 uppercase text-[#A37C3B]">
                     · Enquiry
@@ -322,7 +322,7 @@ export default function Enquiry() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative bg-[#35251F] border border-[#A37C3B]/50 p-10 md:p-16"
+                  className="relative bg-[#35251F] border border-[#A37C3B]/50 p-6 md:p-14"
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -30 }}

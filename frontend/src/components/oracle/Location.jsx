@@ -9,11 +9,11 @@ export default function Location() {
     <section
       id="location"
       data-testid={ORACLE.location.root}
-      className="relative bg-[#F5EBDD] text-[#2A211B] py-24 md:py-36"
+      className="relative bg-[#F5EBDD] text-[#2A211B] py-14 md:py-24 lg:py-32"
     >
-      <div className="max-w-[1500px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto px-5 md:px-10">
         <FadeUp>
-          <div className="flex items-center gap-4 mb-14">
+          <div className="flex items-center gap-4 mb-8 md:mb-12">
             <span className="font-sans text-[0.65rem] tracking-widest-2 uppercase text-[#A37C3B]">
               (08) — Location
             </span>
@@ -24,7 +24,7 @@ export default function Location() {
           </div>
         </FadeUp>
 
-        <h2 className="font-display text-[#35251F] text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95] mb-16 md:mb-20">
+        <h2 className="font-display text-[#35251F] text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95] mb-10 md:mb-16">
           <LineReveal text="A minute" />
           <br />
           <span className="italic text-[#A37C3B] font-mono-serif">

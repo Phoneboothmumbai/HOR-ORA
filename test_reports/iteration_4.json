@@ -1,0 +1,37 @@
+{
+  "summary": "Frontend-only mobile-responsive verification (iteration 4). ALL 9 requested checks PASS. Measured at 390x844: every section (overview, manifesto, residences, gallery, amenities, location, enquiry) has paddingTop/Bottom = 56px (py-14) exactly as intended; all 7 section H2 computed font-size = 36px (<=40px, text-4xl) — hero H1 'ORACLE.' 85.8px is intentional; section eyebrow bottom margins = 40px (about) / 32px (others), well under the old ~112px; no inter-section gap >40px except hero->overview = 62px (acceptable); zero horizontal overflow at 320/375/390 (scrollWidth == clientWidth at all three); floating WhatsApp + Call buttons both 48x48 with right=16px, call bottom=20px, WhatsApp stacked 10px above, and no overlap with enquiry-submit or footer content; gallery tiles compute 1.33 (4:3) on mobile with the two small tiles at 0.75 (4/5-ish portrait), amenities aerial hero = 1.33 (4:3) on mobile and aspect-[21/9]/[24/9] classes retained for md/lg; enquiry <form> computed padding = 24px (p-6). Total mobile page height 13203px (vs 13332px desktop) — content is dense, no large empty runs found in scroll-through screenshots of overview/manifesto/residences/gallery. REGRESSIONS PASS: LineReveal — all H2 word spans in all 7 sections compute to matrix(1,0,0,1,0,0) with zero clipping (wrapper height == inner height, topClip/bottomClip = 0); lead form at 390x844 submitted successfully (Mobile Test / 9012345678 / mob@test.example / 2 BHK / Rs1.9-2.2 Cr) and enquiry-success 'Thank you.' card + toast rendered; mobile hamburger menu opens with all 5 nav items + REGISTER INTEREST. Desktop 1920x900 regression fine: py-32 (128px) sections, H2 112/104px, no overflow, layouts uncramped. ONE PRE-EXISTING HIGH BUG STILL UNFIXED from iteration_3: Header background class bg-[#24160F]/92 still yields computed backgroundColor rgba(0, 0, 0, 0).",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Header.jsx line 40",
+        "issue": "NOT FIXED from iteration_3. Scrolled header still uses `bg-[#24160F]/92`; Tailwind emits no class for opacity 92 (not in default scale), so computed backgroundColor = rgba(0, 0, 0, 0) on both mobile (390px) and desktop (1920px). Consequence verified in screenshots: over the cream sections (#gallery, #amenities intro, #enquiry, #residences) the header shows only a blurred cream wash and the cream nav links (OVERVIEW/RESIDENCES/AMENITIES/LOCATION/ENQUIRE) plus the 'REGISTER INTEREST' CTA label become nearly unreadable; on mobile, page text visibly bleeds through the bar. Fix: bg-[#24160F]/[0.92] or bg-[#24160F]/90.",
+        "selector": "[data-testid='oracle-header']",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Enquiry section after successful submit @390x844",
+        "issues": ["~250px of empty space remains below the 'Thank you.' success card because the section keeps the taller pre-submit height; minor, cosmetic only"]
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Header.jsx line 40: replace bg-[#24160F]/92 with bg-[#24160F]/[0.92] (or /90). This is the only open defect and was already reported in iteration_3 but not applied.",
+    "Optional cosmetic: shrink Enquiry section min-height / info column after success state so the success card is not followed by ~250px blank space on mobile."
+  ],
+  "critical_code_review_comments": [
+    "Mobile spacing pass is correctly and consistently applied — py-14 md:py-24 lg:py-32 on all seven sections verified via computed styles, not just source grep.",
+    "Tailwind slash-opacity must come from the theme scale or use bracket syntax; grep confirms bg-[#24160F]/92 in Header.jsx is still the only such occurrence in src/."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "not tested (per request)", "frontend": "9/9 requested mobile + regression checks passed; 1 carried-over HIGH header CSS bug still open" },
+  "seed_data_creation": "One enquiry lead created via public form: Mobile Test / 9012345678 / mob@test.example / 2 BHK / Rs1.9-2.2 Cr",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Mobile spacing (py-14/56px), H2 36px, 4:3 aspects, floating 48px buttons, no-overflow at 320/375/390, enquiry p-6 all verified by computed style — no need to retest unless spacing classes change. LineReveal transforms verified again (no clipping). Enquiry testids: enquiry-full-name (NOT enquiry-name), enquiry-mobile, enquiry-email, enquiry-property-type-2-bhk, enquiry-budget (native select, label 'Rs1.9-2.2 Cr' with unicode rupee + en-dash), enquiry-submit, enquiry-success. Only open item: Header bg-[#24160F]/92 -> /[0.92].",
+  "rca_of_the_issue": "Header: Tailwind JIT does not generate a utility for an opacity modifier outside the theme opacity scale (0,5,10..95), so `bg-[#24160F]/92` produces no background-color declaration; the header therefore relies on backdrop-blur alone and loses contrast over cream sections."
+}
