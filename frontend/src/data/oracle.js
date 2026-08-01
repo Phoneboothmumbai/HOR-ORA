@@ -131,30 +131,20 @@ export const FLOOR_PLANS = [
   { id: "service", label: "Service Floor", meta: "MEP · Services" },
 ];
 
-// Uploaded brand assets
+// Uploaded brand assets — bundled locally, no external CDN dependency
 export const ASSETS = {
-  oracleLogo:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/p2qsfvta_oracle%20logo%20new.webp",
-  hariomLogo:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/84cdb1ab_Hariom%20Realty%20Logo-CMYK%2002.webp",
+  oracleLogo: "/images/oracle-logo.webp",
+  hariomLogo: "/images/hariom-logo.webp",
   // Exterior renders
-  exteriorHero:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/cc8rp3ro_shot_02.webp",
-  exteriorAerial:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/4m59ofw0_shot_01B.webp",
-  exteriorStreet:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/iqz1i9ln_shot_03Av1.webp",
-  exteriorStreet2:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/j67y6ofq_shot_03B-v2.webp",
-  exteriorArrival:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/wkiwtszq_shot_04.webp",
+  exteriorHero: "/images/exterior-hero.webp",
+  exteriorAerial: "/images/exterior-aerial.webp",
+  exteriorStreet: "/images/exterior-street.webp",
+  exteriorStreet2: "/images/exterior-street2.webp",
+  exteriorArrival: "/images/exterior-arrival.webp",
   // Interior sample flats
-  sample1:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/l6hg5zg6_sample%20flat%20photo.jpeg",
-  sample2:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/gonnkx8r_sample%20flat%20photo%20%282%29.jpeg",
-  sample3:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_mulund-oracle/artifacts/6zm4dutq_sample%20flat%20photo%20%283%29.jpeg",
+  sample1: "/images/sample-1.jpg",
+  sample2: "/images/sample-2.jpg",
+  sample3: "/images/sample-3.jpg",
 };
 
 export const IMAGES = {
