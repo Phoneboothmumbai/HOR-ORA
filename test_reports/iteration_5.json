@@ -1,0 +1,28 @@
+{
+  "summary": "Frontend-only code-state verification on the Emergent preview URL (https://mulund-oracle.preview.emergentagent.com). All 6 requested checks PASS: (1) Residences renders exactly 2 editorial pricing cards (residence-row-0/1) labelled '2 BHK' / '3 BHK' with gold prices ₹1.75 Cr and ₹2.65 Cr, each followed by 'onwards*', captions 'COMPACT LUXURY' / 'FAMILY SCALE' at top-right, and working buttons residence-enquire-0 ('ENQUIRE ON 2 BHK') and residence-enquire-1 ('ENQUIRE ON 3 BHK'); no <table> in #residences. (2) No Floor Plans section anywhere — #floor-plans count 0 and the string 'floor plan' absent from full body text (case-insensitive); no FloorPlans import in OracleLanding.jsx. (3) About (#overview) stats row shows '20' under FLOORS, no '21' present. (4) Amenities (#amenities) caption reads 'Rooftop · 20th Floor'; '21st Floor' absent (initial inner_text miss was due to scroll-reveal animation; confirmed via textContent + visible locator). (5) enquiry-budget select options = ['Select bracket…','₹1.75 – 2 Cr','₹2 – 2.5 Cr','₹2.5 – 3 Cr','₹3 Cr+'] — old ₹1.9–2.2 Cr values gone. (6) Header readable at top (transparent bg, link color rgba(233,214,199,0.85), opacity 1) and after scroll (bg rgba(36,22,15,0.92), same opacity 1) — iteration-4 opacity fix intact. Zero console errors, zero error elements on page. Source files (oracle.js CONFIGURATIONS=2 entries, Residences.jsx, About.jsx, Amenities.jsx, Enquiry.jsx BUDGET_OPTIONS) all match expected state. Production build at /app/frontend/build (main.de972fe7.js, built 14:10) also contains '2.65' and zero 'floor-plans' references — so the built artifact is current too. Conclusion: workspace source + build are the correct source of truth; the user's VPS is serving a stale bundle.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Footer", "issues": ["MahaRERA QR is still a checkerboard 'QR PLACEHOLDER' block (Footer.jsx line ~155) — replace with the real MahaRERA QR before production"]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "No code fix needed for the reported issue — preview URL and local build both contain the latest changes.",
+    "Tell the user their VPS is serving a stale build. Diagnostic pointers: current correct bundle hash is main.de972fe7.js; ask them to check the hash referenced in the VPS-served index.html, confirm git log on the server matches the pushed commit, re-run yarn build on the server (or re-upload the build/ dir), and purge nginx/CDN/browser cache.",
+    "Optional: replace footer QR placeholder with real MahaRERA QR image."
+  ],
+  "critical_code_review_comments": [
+    "All verified components use data-testid consistently; no issues found in the reviewed files.",
+    "Footer QR placeholder is the only leftover non-production asset."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "not tested (skipped per request)", "frontend": "100% (6/6 verification checks passed)"},
+  "seed_data_creation": "none",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Iteration 5 was a pure state-verification run: 2-card Residences (₹1.75 Cr / ₹2.65 Cr), no Floor Plans section, 20 floors, Rooftop · 20th Floor, updated budget options, header contrast — all confirmed live on the preview URL. Note: #amenities caption text is hidden from inner_text until its scroll-reveal animation fires; use textContent or scroll_into_view before asserting. No open frontend defects except the footer QR placeholder.",
+  "rca_of_the_issue": "User's complaint (old version visible) is not reproducible on the Emergent preview URL — DOM and built bundle both contain the latest changes. Root cause therefore lies in the user's VPS deployment pipeline (stale build artifacts / nginx or CDN caching / server checkout not on the pushed commit), not in the application code."
+}
