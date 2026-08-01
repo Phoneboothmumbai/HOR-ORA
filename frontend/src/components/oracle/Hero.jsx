@@ -164,10 +164,10 @@ export default function Hero() {
               </button>
               <button
                 data-testid={ORACLE.hero.ctaSecondary}
-                onClick={() => scrollTo("floor-plans")}
+                onClick={() => scrollTo("residences")}
                 className="group inline-flex items-center justify-between gap-4 border border-[#E9D6C7]/40 text-[#E9D6C7] hover:border-[#A37C3B] hover:text-[#A37C3B] px-8 py-5 font-sans text-xs tracking-widest-2 uppercase transition-colors min-w-[280px]"
               >
-                <span>Explore floor plans</span>
+                <span>Explore residences</span>
                 <ArrowDownRight size={18} className="transition-transform group-hover:translate-y-1" />
               </button>
             </motion.div>

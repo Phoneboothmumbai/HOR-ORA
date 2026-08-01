@@ -5,7 +5,6 @@ import Marquee from "@/components/oracle/Marquee";
 import About from "@/components/oracle/About";
 import Manifesto from "@/components/oracle/Manifesto";
 import Residences from "@/components/oracle/Residences";
-import FloorPlans from "@/components/oracle/FloorPlans";
 import Gallery from "@/components/oracle/Gallery";
 import Amenities from "@/components/oracle/Amenities";
 import Location from "@/components/oracle/Location";
@@ -36,7 +35,6 @@ export default function OracleLanding() {
       <About />
       <Manifesto />
       <Residences />
-      <FloorPlans />
       <Gallery />
       <Amenities />
       <Location />
