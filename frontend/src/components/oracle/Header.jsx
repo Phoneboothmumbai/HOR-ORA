@@ -37,8 +37,8 @@ export default function Header() {
       transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#35251F]/90 backdrop-blur-xl border-b border-[#A37C3B]/25"
-          : "bg-transparent"
+          ? "bg-[#24160F]/92 backdrop-blur-xl border-b border-[#A37C3B]/25"
+          : "bg-gradient-to-b from-[#24160F]/70 via-[#24160F]/40 to-transparent"
       }`}
     >
       <div className="max-w-[1600px] mx-auto px-6 md:px-10 py-4 md:py-5 flex items-center justify-between">
@@ -73,7 +73,7 @@ export default function Header() {
         <button
           data-testid={ORACLE.header.ctaEnquire}
           onClick={() => scrollTo("enquiry")}
-          className="hidden lg:inline-flex gold-btn items-center gap-3 border border-[#A37C3B] text-[#A37C3B] hover:text-[#35251F] px-6 py-3 font-sans text-[0.7rem] tracking-widest-2 uppercase transition-colors"
+          className="hidden lg:inline-flex gold-btn items-center gap-3 border border-[#A37C3B] bg-[#A37C3B]/15 backdrop-blur-sm text-[#E9D6C7] hover:text-[#35251F] px-6 py-3 font-sans text-[0.7rem] tracking-widest-2 uppercase transition-colors"
         >
           Register Interest
           <span className="w-6 h-px bg-current" />
