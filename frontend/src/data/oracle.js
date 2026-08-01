@@ -91,44 +91,29 @@ export const CONNECTIVITY = [
 export const MANIFESTO = [
   {
     n: "01",
-    title: "Trusted &\u00a0Transparent",
+    title: "Trusted & Transparent",
     body: "Every commitment is honoured in writing and in spirit — from the first walkthrough to the final handover.",
   },
   {
     n: "02",
-    title: "Delivered\u00a0On\u00a0Time",
+    title: "Delivered On Time",
     body: "A discipline of milestones, verified quarterly. We publish progress so you never have to ask.",
   },
   {
     n: "03",
-    title: "Premium\u00a0Craft",
+    title: "Premium Craft",
     body: "German plumbing, Italian marble, Japanese sanitaryware — specified, not substituted.",
   },
   {
     n: "04",
-    title: "Legally\u00a0Clear",
+    title: "Legally Clear",
     body: "Titles verified, approvals lodged, RERA registered. Your due diligence begins where ours ends.",
   },
   {
     n: "05",
-    title: "Redevelopment\u00a0Experts",
+    title: "Redevelopment Experts",
     body: "Two decades of neighbourhood knowledge — the reason existing societies choose Hariom Realty.",
   },
-];
-
-export const FLOOR_PLANS = [
-  { id: "ground", label: "Ground Floor", meta: "Entrance · Shops · Parking" },
-  { id: "commercial", label: "1st & 2nd Floor", meta: "Commercial · Offices" },
-  { id: "f3", label: "3rd Floor", meta: "Residential" },
-  { id: "f4", label: "4th Floor", meta: "Residential" },
-  { id: "f5-6", label: "5th & 6th Floor", meta: "Residential" },
-  { id: "f7", label: "7th Floor", meta: "Refuge" },
-  { id: "f8", label: "8th Floor", meta: "Residential" },
-  { id: "f9-10", label: "9th & 10th Floor", meta: "Residential" },
-  { id: "f11", label: "11th Floor", meta: "Residential" },
-  { id: "f12-19", label: "12th, 13th & 15th–19th", meta: "Residential" },
-  { id: "f14", label: "14th Floor", meta: "Refuge" },
-  { id: "service", label: "Service Floor", meta: "MEP · Services" },
 ];
 
 // Uploaded brand assets — bundled locally, no external CDN dependency
@@ -160,9 +145,5 @@ export const IMAGES = {
     ASSETS.exteriorStreet2,
   ],
   amenityBg: ASSETS.exteriorAerial,
-  founder:
-    "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80",
   location: ASSETS.exteriorAerial,
-  floorPlan:
-    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
 };

@@ -1,0 +1,36 @@
+{
+  "summary": "Iteration 2 frontend-only verification of the 3 reported UI bugs on the Oracle landing page (Floor Plans removal, Manifesto tablet layout, Marquee size) plus page/lead-form regression. All 3 fixes VERIFIED PASS at 1920/768/600 viewports. However, a separate CRITICAL pre-existing rendering defect was found: every section H2 heading (and the footer 'ORACLE.' wordmark) is permanently invisible because the LineReveal scroll animation never fires - words stay at translateY(110%) inside an overflow:hidden wrapper. Verified on both desktop and tablet, with natural wheel scrolling and with reduced-motion explicitly set to no-preference.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Reveal.jsx LineReveal (used by About, Manifesto, Residences, Gallery, Amenities, Location, Enquiry H2s + Footer wordmark)", "issue": "All section headings render as blank space. Measured computed transform on every inner word span = matrix(1,0,0,1,0,79.2)/(0,114.4)/(0,123.2) i.e. still at initial y:'110%' after full-page scroll. Affected headings: 'More than a home. A lifestyle of consequence.', 'Why families choose us.', 'Choose your frame of view.', 'Interiors, framed like memories.', 'A resort above the city.', 'A minute to everywhere.', 'Reserve a viewing.', footer 'ORACLE.'. Screenshots show large empty gaps where each H2 should be. Not a Playwright artifact: prefers-reduced-motion=false, IntersectionObserver available, no console errors, verified with real mouse.wheel scrolling and after page.emulate_media(reduced_motion='no-preference').", "selector": "section h2 span > span", "priority": "CRITICAL"},
+      {"component": "Floating.jsx", "issue": "At 600px viewport the floating call/WhatsApp button visually overlaps the Emergent chat bubble in the bottom-right corner (two circles stacked on top of each other).", "selector": "Floating action buttons", "priority": "LOW"},
+      {"component": "About.jsx image caption", "issue": "Caption overlay 'LIVING ROOM - SAMPLE FLAT' is light text over a light-toned render (low contrast, partially illegible at 600px); also the caption says LIVING ROOM but the image shows a bedroom.", "selector": "#overview img caption", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Enquiry form", "issues": ["Budget field uses a native browser <select> (options: '', Rs1.9-2.2 Cr, 2.2-2.5 Cr, 3-3.2 Cr, 3.2 Cr+) instead of the shadcn Select component - inconsistent with the rest of the editorial styling."]},
+      {"screen": "Location", "issues": ["Connectivity list items have no data-testid (only location-section root), so per-item assertions are not possible."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "CRITICAL: Fix LineReveal in /app/frontend/src/components/oracle/Reveal.jsx - whileInView never triggers because the animated inner span is fully clipped by its overflow:hidden parent (empty intersection rect vs viewport amount:0.5), so all H2 headings stay hidden. Suggested fix: put the IntersectionObserver on the un-clipped wrapper (useInView on the outer span/heading + animate={inView?{y:0}:{}}), or lower viewport amount to 0 / use margin, or animate opacity+y without overflow clipping.",
+    "Remove orphaned floorPlans entries from /app/frontend/src/constants/testIds.js (floor-plans-section, floor-plan-{i}, floor-plan-download-{i}) and consider renaming hero testId 'hero-cta-floorplans' now that the CTA is 'Explore residences'.",
+    "Optional: replace native budget <select> with shadcn Select; de-overlap floating buttons vs chat widget at <=600px; fix About image caption contrast/label mismatch."
+  ],
+  "critical_code_review_comments": [
+    "Reveal.jsx: initial y:'110%' inside an overflow:hidden inline-block creates an IntersectionObserver deadlock - the element can never reach 50% visibility, so whileInView with viewport.amount 0.5 never resolves. This silently hides all primary headings (major SEO/UX impact).",
+    "Hero secondary CTA is a button with no href (scroll handler) but the testId still references floorplans - naming now misleading."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "not tested (frontend-only request)", "frontend": "Requested fixes 3/3 PASS; overall page rendering blocked by heading-reveal defect"},
+  "seed_data_creation": "One lead created via POST /api/leads: 'Regression Test' / 9998887776 / reg@test.example / 2 BHK / Rs2.2-2.5 Cr",
+  "should_call_test_agent_after_fix": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Verified in iteration 2: (1) No #floor-plans / floor-plans-section in DOM, string 'floor plan' absent from body text, no download links, hero secondary CTA text = 'EXPLORE RESIDENCES' and clicking it scrolls to residences-section. (2) Manifesto at 768x1024 and 600x800: chapter number, title and body stack in separate rows, zero bounding-box overlap for items 0-4, no horizontal page overflow (scrollWidth == clientWidth). (3) Marquee band height = 86px at 1920 (<=100 target), span font-size 30px, py 24px - PASS. Regression: residences (6 pricing rows), gallery 6 tiles, amenities 10 tiles, location map iframe, footer Disclaimer/Privacy tabs all present; no broken images (naturalWidth==0 count = 0); enquiry form submits successfully (POST /api/leads) and enquiry-success card renders. Outstanding: LineReveal heading invisibility (see ui_bugs) - re-verify by asserting computed transform of 'h2 span > span' equals matrix(1, 0, 0, 1, 0, 0) after scrolling each section into view.",
+  "rca_of_the_issue": "LineReveal wraps each word in a span with overflow:hidden and animates an inner motion.span from y:'110%' to 0 using whileInView with viewport={{once:true, amount:0.5}}. Because the inner span starts translated entirely outside its clipping parent, its intersection rectangle with the viewport is empty, so the 50% visibility threshold can never be met and framer-motion never starts the animation. The words therefore remain permanently off-screen (clipped), making every section heading invisible. Reproduce: load the page, scroll to any section, run getComputedStyle(document.querySelector('#manifesto h2 span > span')).transform -> matrix(1,0,0,1,0,114.4)."
+}

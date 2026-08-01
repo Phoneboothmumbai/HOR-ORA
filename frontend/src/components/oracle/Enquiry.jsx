@@ -136,7 +136,7 @@ export default function Enquiry() {
             <FadeUp delay={0.3}>
               <p className="font-sans text-[#E9D6C7]/85 leading-relaxed text-base md:text-lg max-w-md">
                 Leave your details. A senior sales associate will personally curate a
-                walkthrough of the sample flat, price cards and floor plans.
+                walkthrough of the sample flat, price cards and configuration details.
               </p>
             </FadeUp>
 

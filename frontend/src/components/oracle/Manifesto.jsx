@@ -43,18 +43,18 @@ export default function Manifesto() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: i * 0.05 }}
-              className="group py-10 md:py-14 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start hover:pl-2 transition-all duration-500"
+              className="group py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 items-start hover:pl-2 transition-all duration-500"
             >
-              <div className="md:col-span-2">
+              <div className="lg:col-span-2">
                 <span className="chapter-num">{m.n}</span>
               </div>
-              <div className="md:col-span-4">
-                <h3 className="font-display text-3xl md:text-5xl leading-tight text-[#E9D6C7] group-hover:text-[#A37C3B] transition-colors">
+              <div className="lg:col-span-4">
+                <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight text-[#E9D6C7] group-hover:text-[#A37C3B] transition-colors break-words">
                   {m.title}
                 </h3>
               </div>
-              <div className="md:col-span-6 md:pt-4">
-                <p className="font-sans text-[#E9D6C7]/90 leading-relaxed text-base md:text-lg max-w-xl">
+              <div className="lg:col-span-6 lg:pt-3">
+                <p className="font-sans text-[#E9D6C7]/90 leading-relaxed text-base lg:text-lg max-w-xl">
                   {m.body}
                 </p>
               </div>
