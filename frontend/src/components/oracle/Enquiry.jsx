@@ -41,10 +41,10 @@ async function postToGoogleForm(data) {
 
 const PROPERTY_OPTIONS = ["1 BHK", "2 BHK", "3 BHK"];
 const BUDGET_OPTIONS = [
-  "₹1.9–2.2 Cr",
-  "₹2.2–2.5 Cr",
-  "₹3–3.2 Cr",
-  "₹3.2 Cr+",
+  "₹1.75 – 2 Cr",
+  "₹2 – 2.5 Cr",
+  "₹2.5 – 3 Cr",
+  "₹3 Cr+",
 ];
 
 export default function Enquiry() {

@@ -55,7 +55,7 @@ export default function About() {
 
             <FadeUp delay={0.6} className="mt-10 grid grid-cols-3 gap-4 border-t border-[#A37C3B]/25 pt-6">
               {[
-                { k: "Floors", v: "21" },
+                { k: "Floors", v: "20" },
                 { k: "Homes", v: "Bespoke" },
                 { k: "Rera", v: "Verified" },
               ].map((s) => (

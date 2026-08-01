@@ -73,7 +73,7 @@ export default function Amenities() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-px bg-[#A37C3B]" />
                   <span className="font-sans text-[0.6rem] tracking-widest-2 uppercase text-[#A37C3B]">
-                    Rooftop · 21st Floor
+                    Rooftop · 20th Floor
                   </span>
                 </div>
                 <div className="font-display text-[#E9D6C7] text-3xl md:text-5xl leading-tight">

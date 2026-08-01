@@ -21,12 +21,22 @@ export const CONTACT = {
 };
 
 export const CONFIGURATIONS = [
-  { type: "2 BHK", area: 623, price: 19686087, priceLabel: "₹1.97 Cr" },
-  { type: "2 BHK", area: 630, price: 19894470, priceLabel: "₹1.99 Cr" },
-  { type: "2 BHK", area: 729, price: 22830801, priceLabel: "₹2.28 Cr" },
-  { type: "2 BHK", area: 740, price: 23169060, priceLabel: "₹2.32 Cr" },
-  { type: "3 BHK", area: 1007, price: 31117383, priceLabel: "₹3.11 Cr" },
-  { type: "3 BHK", area: 1150, price: 35374350, priceLabel: "₹3.54 Cr" },
+  {
+    type: "2 BHK",
+    tag: "Compact luxury",
+    priceValue: "1.75",
+    priceUnit: "Cr",
+    onwards: true,
+    caption: "Two-bedroom homes designed around light, air and long-view sightlines.",
+  },
+  {
+    type: "3 BHK",
+    tag: "Family scale",
+    priceValue: "2.65",
+    priceUnit: "Cr",
+    onwards: true,
+    caption: "Three-bedroom residences with expansive living areas and premium finishes.",
+  },
 ];
 
 export const SPECS = [
